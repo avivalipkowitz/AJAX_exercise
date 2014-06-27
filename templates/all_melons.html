@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block body %}
+
 <h2>Top Selling Melons</h2>
+
 
 <div id="melon-list">
     {% for melon in melon_list %}
@@ -14,8 +16,29 @@
     </div>
     {% endfor %}
 </div>
+<div id="blackout-screen">
+    <div id="promotion" class="jumbotron">
+        <h1>Save on Watermelons! All watermelons 50% off!</h1>
+        <a href="" id="close-promotion">Close this window</a>
+    </div>
+</div>
+<div id="cart-display">
+    <h2> loading... </h2>
 
+</div>
 <script type="text/javascript">
+function hideBlackoutScreen() {
+    var blackout = $("div#blackout-screen"); 
+    blackout.hide();
+    return false;
+    }
+function main() {
+    var closeLink = $("a#close-promotion");
+    // console.log(closeLink)
+    closeLink.click(hideBlackoutScreen);
+}
+$(main);
+
 </script>
 
 {% endblock %}
